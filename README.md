@@ -1,0 +1,2 @@
+# AdazzleArchitecture
+Adazzle architecture
