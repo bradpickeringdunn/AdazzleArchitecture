@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Backbone.ErrorHandling;
+﻿using System.Runtime.Serialization;
 
-namespace azzle.Service.Api.Models {
+namespace Adazzle.Services.Campaign.Api.Models
+{
+    [DataContract]
     public class ExampleRequest
     {
-      //Properties denoting the request go here
-      public dynamic RequestProperty { get; set; }
+        [DataMember]
+        public int Age { get; set; }
+
+        [DataMember]
+        public string Name { get; set; }
+        
     }
 }

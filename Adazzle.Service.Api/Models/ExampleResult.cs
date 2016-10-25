@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Backbone.Services.Results;
+﻿using OutTheBox.Services.Results;
+using System.Runtime.Serialization;
 
-namespace azzle.Service.Api.Models {
-   public class ExampleResult : GenericServiceResult {
-
-      //Response properties go here E.g. database results.
-      public dynamic ListDatabaseResults { get; set; }
-   }
+namespace Adazzle.Services.Campaign.Api.Models
+{
+    [DataContract]
+    public class ExampleResult : GenericServiceResult
+    {
+        [DataMember]
+        //Response properties go here E.g. database results.
+        public dynamic ListDatabaseResults { get; set; }
+    }
 }

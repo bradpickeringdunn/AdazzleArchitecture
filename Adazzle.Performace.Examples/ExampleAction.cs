@@ -1,25 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Backbone.Logging;
-using Backbone.Repository;
-using Backbone.Utilities;
-using Adazzle.Service.Example.Contracts;
-using Backbone.ErrorHandling;
-using Adazzle.Performace.Examples.Models;
-using Adazzle.Performace.Examples.Mappings;
+using Adazzle.Common.Models;
+using OutTheBox.Utilities;
+using Adazzle.Services.Campaign.Api.Contracts;
+using Adazzle.Services.Campaign.Api.Models;
 
-namespace Adazzle.Performace.Examples {
+namespace Adazzle.Performace.Examples
+{
 
-   public class ExampleAction<T> where T : class {
+    public class ExampleAction<T> where T : class {
 
-        private IServiceExample _serviceExample;
+        private ICampaignService _serviceExample;
 
-        public Func<ExampleResult, T> OnComplete{ get; set; }
+        public Func<Common.Models.ExampleResult, T> OnComplete{ get; set; }
         
-        public ExampleAction(IServiceExample serviceExample)
+        public ExampleAction(ICampaignService serviceExample)
         {
             Guardian.ArgumentNotNull(serviceExample, "serviceExample");
             _serviceExample = serviceExample;
@@ -30,18 +24,22 @@ namespace Adazzle.Performace.Examples {
             Guardian.ArgumentNotNull(request, "request");
             Guardian.InstanceNotNull(OnComplete, "OnComplete");
 
-            var result = new ExampleResult();
+            var result = new Common.Models.ExampleResult();
 
-            var serviceResult = _serviceExample.EndpointExample(request.AsServiceRequest());
+            var serviceResult = _serviceExample.LoadCampaign(new ExampleRequest()
+            {
+                Age = request.Age,
+                Name = request.Name
+            });
             
             if(serviceResult.IsNull() || serviceResult.Notifications.HasErrors)
             {
-                result.Notifications.Add("There was an unexpected error.");
+                result.Notifications.AddError("There was an unexpected error.");
             }
 
             if(serviceResult.IsNotNull() && !serviceResult.Notifications.HasErrors)
             {
-                result = serviceResult.ToExampleResult();
+                // result = serviceResult.ToExampleResult();
             }
 
             return OnComplete(result);

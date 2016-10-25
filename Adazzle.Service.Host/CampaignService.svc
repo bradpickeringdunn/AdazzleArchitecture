@@ -1,0 +1,5 @@
+﻿<%@ ServiceHost Language="C#" 
+    Debug="true" 
+    Service="Adazzle.Services.Campaign.Api.Contracts.ICampaignService, Adazzle.Services.Campaign.Api" 
+    Factory="OutTheBox.WCF.ServiceFactory.CompositionServiceHostFactory, OutTheBox.WCF"
+%>

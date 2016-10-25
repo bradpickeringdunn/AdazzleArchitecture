@@ -1,14 +1,7 @@
 ﻿using Adazzle.Data;
-using Adazzle.Service.Example.Contracts;
-using Adazzle.Service.Example.Services;
-using Backbone.Logging;
-using Backbone.Repository;
 using Microsoft.Practices.Unity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OutTheBox.Logging;
+using OutTheBox.Repository;
 
 namespace Adazzle.Performace.Examples
 {
@@ -20,7 +13,6 @@ namespace Adazzle.Performace.Examples
 
             container.RegisterType<ILogger, DebugLogger>();
             container.RegisterType<IRepository, Repository>();
-            container.RegisterType<IServiceExample, ServiceExample>();
 
             return container;
         }

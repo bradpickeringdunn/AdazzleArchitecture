@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Backbone">
-      <HintPath>..\Libraries\Backbone.dll</HintPath>
+    <Reference Include="Adazzle.Campaign.Service.Api">
+      <HintPath>..\Adazzle.Service.Host\Bin\Adazzle.Campaign.Service.Api.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -56,8 +56,12 @@
       <HintPath>..\packages\NLog.4.3.10\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OutTheBox">
+      <HintPath>..\Libraries\OutTheBox.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,10 +70,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mappings\ExampleModelMapping.cs" />
-    <Compile Include="Mappings\ExampleResultMappings.cs" />
-    <Compile Include="Models\ExampleModel.cs" />
-    <Compile Include="Models\ExampleResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExampleAction.cs" />
@@ -80,17 +80,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adazzle.Common\Adazzle.Common.csproj">
+      <Project>{3c149fe3-2c54-4ec7-88b6-6c0f5c98e5ab}</Project>
+      <Name>Adazzle.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adazzle.Data\Adazzle.Data.csproj">
       <Project>{E0F598BE-E38F-448F-ABCF-8E61C21022CE}</Project>
       <Name>Adazzle.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adazzle.Service.Example\Adazzle.Service.Example.csproj">
-      <Project>{1b765b05-336f-4cd5-b451-c1eee10ffb96}</Project>
-      <Name>Adazzle.Service.Example</Name>
+    <ProjectReference Include="..\Adazzle.Service.Api\Adazzle.Services.Campaign.Api.csproj">
+      <Project>{BA9848BC-607E-4389-B7F3-58A28DA1E9BD}</Project>
+      <Name>Adazzle.Services.Campaign.Api</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adazzle.Service.Models\Adazzle.Service.Models.csproj">
-      <Project>{9ec17436-1d08-44e0-abd6-88b825778fe6}</Project>
-      <Name>Adazzle.Service.Models</Name>
+    <ProjectReference Include="..\Adazzle.Service.Example\Adazzle.Services.Campaign.csproj">
+      <Project>{1b765b05-336f-4cd5-b451-c1eee10ffb96}</Project>
+      <Name>Adazzle.Services.Campaign</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
