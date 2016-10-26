@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adazzle.Performace.Examples", "Adazzle.Performace.Examples\Adazzle.Performace.Examples.csproj", "{6DEC1637-1AF3-4242-ABB1-76D7274D0543}"
 EndProject
@@ -90,5 +90,8 @@ Global
 		{17F52113-2A21-4B97-A948-9F74E1DED0DF} = {FD30CEB0-23DA-4C2C-8B5A-D9550ED48671}
 		{FD30CEB0-23DA-4C2C-8B5A-D9550ED48671} = {6F3027EF-E4B5-43BE-AD5C-A34AEF570383}
 		{3C149FE3-2C54-4EC7-88B6-6C0F5C98E5AB} = {EE3FFE4C-F657-49FE-87CF-8FF4011BB7D9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal
